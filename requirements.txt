@@ -1,2 +1,3 @@
-aiogram
-python_weather
+aiogram==2.20
+python-weather==0.3.7
+
