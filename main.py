@@ -2,16 +2,12 @@ from aiogram import types, executor, Dispatcher, Bot
 import python_weather
 import config
 
-
-
-
-
 bot = Bot(config.token, parse_mode=types.ParseMode.HTML)
 dp = Dispatcher(bot)
 client = python_weather.Client(format=python_weather.IMPERIAL, locale='ru-RU')
 
 
-@dp.message_handler()
+@dp.message_handler(commands=['start'])
 async def echo(message: types.Message):
     weather = await client.find(message.text)
     celsius = round((weather.current.temperature - 32) / 1.8)
