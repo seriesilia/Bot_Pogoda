@@ -7,7 +7,7 @@ dp = Dispatcher(bot)
 client = python_weather.Client(format=python_weather.IMPERIAL, locale='ru-RU')
 
 
-@dp.message_handler(commands=['start'])
+@dp.message_handler()
 async def echo(message: types.Message):
     weather = await client.find(message.text)
     celsius = round((weather.current.temperature - 32) / 1.8)
